@@ -168,3 +168,43 @@ function checkFilms(arr) {
 }
 
 checkFilms(tranformedArray);
+
+
+
+const funds = [
+    {amount: -1400},
+    {amount: 2400},
+    {amount: -1000},
+    {amount: 500},
+    {amount: 10400},
+    {amount: -11400}
+];
+
+
+const getPositiveIncomeAmount = (data) => {
+
+let founds = data.filter(item =>  item.amount > 0).reduce((acc, next)=>acc + next.amount, 0)
+console.log(founds);
+};
+
+
+
+
+
+const getTotalIncomeAmount = (data) => {
+    if(data.some(item => item.amount < 0)){
+        let total = data.reduce((acc, next)=>acc + next.amount, 0)
+        console.log(total);
+    } else {
+        getPositiveIncomeAmount(data);
+    }
+};
+getTotalIncomeAmount(funds); 
+
+
+
+// const getTotalIncomeAmount = (data) => {
+//     return data.some(item => item.amount < 0) ? data.reduce((acc, curr) => acc + curr.amount, 0) : getPositiveIncomeAmount(data);
+// }
+
+// getTotalIncomeAmount(funds);
